@@ -1,0 +1,32 @@
+Form {
+    /* background: grey; */
+    text-align: center;
+}
+
+.login-form {
+    display: block;
+}
+
+input {
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid blueviolet;
+    outline: none;
+    margin: 10px;
+}
+
+input:focus {
+    border-bottom: 2px solid rgb(113, 223, 113);
+}
+
+.registration-btn {
+    padding: 12px;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightgray;
+    color: black;
+}
