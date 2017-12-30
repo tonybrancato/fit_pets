@@ -7,15 +7,16 @@ export default class LineExpample extends React.Component {
 
   render() {
     return (
-      <div>
+      // <div>
         <Line 
           data={this.props.data}
-          width={400}
+          width={375}
           height={250}
           options={{
             maintainAspectRatio: false
-          }} />
-      </div>
+          }} 
+        />
+      /* </div> */
     );
-  }
+  } 
 };

@@ -1,7 +1,6 @@
 .pet-box {
     /* margin: 10px; */
     border: 1px solid black;    
-    background-color: grey; 
     min-width: 800px;
     max-width: 1200px;   
     padding: 15px;    
@@ -13,23 +12,22 @@
 .pet-box-expanded {
     max-width: 900px;
     margin: 0px auto;
-
+    background-color: antiquewhite;
 }
 
 .react-sanfona-item-title	{
     font-size: 2.5em;
+    text-align: center;
+    background-color: blueviolet;
 }
 
 .test {
     color: red;
 }
 
-.pet-parent {
-    text-align: center;
-}
-
 .chart {
-    display: inline-block;
+    display: inline-block; 
+    /* float: left; */
 }
 
 /* @media only screen and (min-width: 800px) {
