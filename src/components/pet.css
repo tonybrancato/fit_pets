@@ -1,31 +1,49 @@
+/*
+Primary Colors:
+P - #b867c6
+P light - #ec97f9
+P Dark - #863895
+
+Secondary Colors:
+S - #e1bee7
+S Light - #fff1ff
+S Dark - #af8eb5
+*/
+
 .react-sanfona {
-    /* margin: 10px; */
-    /* border: 1px solid black;     */
     min-width: 800px;
     max-width: 1200px;   
     padding: 15px;    
-    border-radius: 2pt;
 }
-.pet-box:nth-child(even) {
-    background-color: lavender;
+
+.react-sanfona-item-expanded .react-sanfona-item-title {
+    background-color: #af8eb5;
 }
 
 .pet-box-expanded {
     max-width: 900px;
     margin: 0px auto;
-    background-color: antiquewhite;
-    border-radius: 2pt;
-    border: 1px solid grey;
-    padding: 10px;
+    background-color: #fff1ff;
+    border-radius: 3pt;
+    border: 1.5px solid black;
+    padding: 10px !important;
+}
+
+.react-sanfona-item {
+    padding: 5px;
 }
 
 .react-sanfona-item-title	{
     font-size: 2.5em;
     text-align: center;
-    background-color: blueviolet;
+    background-color: #b867c6;
     padding: 12px;
-    border-radius: 2pt;
-    border: 1px solid grey;
+    border-radius: 3pt;
+    border: 1.5px solid black;
+}
+
+.react-sanfona-item-title:nth-child(even) {
+    background-color: #e1bee7;
 }
 
 .test {
@@ -34,6 +52,8 @@
 
 .chart {
     display: inline-block; 
+    width: 375px;
+    height: 250px;
 }
 
 /* @media only screen and (min-width: 800px) {
