@@ -33,24 +33,28 @@ return (
       <div className="form-section">
         <div className="radio-section">
 
-          <label className="radio-label" htmlFor="species">
+          
             <Field
+              id='dog'
               className="radio"
               component={Input}
               type="radio"
               name="species"
               value="Dog"
-            />Dog
-          </label>
-          <label className="radio-label" htmlFor="species">
+            />
+            <label className="radio-label" htmlFor="dog">Dog</label>
+          
+          
             <Field
+              id='cat'
               className="radio"
               component={Input}
               type="radio"
               name="species"
               value="Cat"
-            />Cat
-          </label>
+            />
+            <label className="radio-label" htmlFor="cat">Cat</label>
+          
         </div>
       </div>
       <div className="form-section">
@@ -109,7 +113,7 @@ return (
           />
         </div>
       </div>
-      <div className="form-section checkbox-group">
+      {/* <div className="form-section checkbox-group">
         <h3>Known Commands</h3>
         <div className="checkbox">
           <Field
@@ -141,7 +145,7 @@ return (
           />
           <label className="checkbox-label" htmlFor="down">Down</label>
         </div>
-      </div>
+      </div> */}
       <button
         type="submit"
         disabled={this.props.pristine || this.props.submitting}
