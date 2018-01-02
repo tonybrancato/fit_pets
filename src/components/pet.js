@@ -8,8 +8,7 @@ import LineExample from './line-graph';
 import './pet.css';
 import { getPets } from '../actions/pets';
 import AddDataBtn from './add-data-btn';
-// import AddDataForm from './add-data-form';
-// import  AddPetForm from './add-pet-form';
+import AddPetForm from './add-pet-form';
 
 export class Pet extends React.Component {
   
@@ -18,17 +17,36 @@ export class Pet extends React.Component {
   }
 
   render() {
+    // const newPet = ['new-pet'];
+    // const newPetAccordion = (newPet).map((newPet, i) => {
+    //   return (
+    //     <div> 
+    //     <AccordionItem
+    //       key={i}
+    //       className="pet-box"
+    //       bodyClassName="pet-box-expanded" 
+    //       duration={400}
+    //       title="Add A New Pet!"
+    //       >
+    //       <AddPetForm />
+    //     </AccordionItem>
+    //   </div>        
+    //   );
+    // });
+
+        
+
     const pets = this.props.pets;
     const accordionItems = (pets).map((pet, i) => {
       console.log(pets);
       return (
         <AccordionItem
-          key={i} 
+          key={pet.id}
+          id={pet.id}
           className="pet-box" 
-          bodyClassName="pet-box-expanded" 
-          duration={400}
-          title={`${pet.name}`} 
-          expanded={pet === 1}>
+          expandedClassName	="pet-box-expanded" 
+          duration={200}
+          title={`${pet.name} the ${pet.species}`} >
             <div>
               <h3>{`${pet.name}'s Current Weight: ${pet.lastWeight} pounds`}</h3>
               <h3>{`Age: ${pet.age}s`}</h3>
@@ -62,11 +80,11 @@ export class Pet extends React.Component {
               <AddDataBtn />
               </div>
               
-              {/* <div className="chart"><LineExample data={{
+              <div className="chart"><LineExample data={{
                 labels: pet.weightDate,
                 datasets: [
                   {
-                    label: pet.name,
+                    label: `${pet.name}'s Known Commands`,
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: 'rgba(75,192,192,0.4)',
@@ -89,18 +107,27 @@ export class Pet extends React.Component {
                 ]
               }} />
               <AddDataBtn />
-              </div> */}
+              </div>
             </div>
         </AccordionItem>
       );
   })
     return (
-      <Accordion 
-        key={this.props.id}
-        allowMultiple={true} 
-        className="pet-parent">         
-        {accordionItems}
-      </Accordion>
+      <div>
+        <h1 className=''>My Pets</h1>
+        <Accordion 
+          key={this.props.id}
+          allowMultiple={true} 
+          className="pet-parent">         
+          {accordionItems}
+        </Accordion>
+        {/* <Accordion 
+          allowMultiple={true} 
+          key='new-pet'
+          className="new-pet pet-parent">         
+          {newPetAccordion}
+      </Accordion> */}
+     </div>
     );
   }
 }
