@@ -73,9 +73,29 @@ export const addPet = pet => (dispatch, getState) => {
     });
   };
 
-export const updatePet = pet => (dispatch, getState) => {
+export const addWeight = (weight, petId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  const petId = getState().
-  console.log(pet);
-  return fetch(`${API_BASE_URL}/pets/`)
+  console.log(weight, petId, authToken);
+  return fetch(`${API_BASE_URL}/pets/weight/${petId}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify(weight)
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(dispatch(push('/')))
+  .catch((err) => {
+    const { reason, message, location } = err;
+    if (reason === 'ValidationError') {
+    // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({
+          [location]: message,
+        }),
+      );
+    }
+  });  
 }
