@@ -7,7 +7,7 @@ import LineExample from './line-graph';
 
 import './pet.css';
 import { getPets } from '../actions/pets';
-import AddDataBtn from './add-data-btn';
+import AddWeightForm from './add-weight-form';
 import AddPetForm from './add-pet-form';
 
 export class Pet extends React.Component {
@@ -77,7 +77,7 @@ export class Pet extends React.Component {
                     }
                   ]
                 }} />
-              <AddDataBtn />
+              <AddWeightForm id={pet.id}/>
               </div>
               
               <div className="chart"><LineExample data={{
@@ -106,7 +106,7 @@ export class Pet extends React.Component {
                   }
                 ]
               }} />
-              <AddDataBtn />
+              {/* <AddDataBtn /> */}
               </div>
             </div>
         </AccordionItem>
