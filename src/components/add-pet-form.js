@@ -27,34 +27,27 @@ return (
     <form
       className="add-pet-form"
       onSubmit={this.props.handleSubmit(values =>
-				    this.onSubmit(values),
-				  )}
-    >
+        this.onSubmit(values))}>
       <div className="form-section">
         <div className="radio-section">
-
-          
-            <Field
-              id='dog'
-              className="radio"
-              component={Input}
-              type="radio"
-              name="species"
-              value="Dog"
-            />
-            <label className="radio-label" htmlFor="dog">Dog</label>
-          
-          
-            <Field
-              id='cat'
-              className="radio"
-              component={Input}
-              type="radio"
-              name="species"
-              value="Cat"
-            />
-            <label className="radio-label" htmlFor="cat">Cat</label>
-          
+          <Field
+            id='dog'
+            className="radio"
+            component={Input}
+            type="radio"
+            name="species"
+            value="Dog"
+          />
+          <label className="radio-label" htmlFor="dog">Dog</label>
+          <Field
+            id='cat'
+            className="radio"
+            component={Input}
+            type="radio"
+            name="species"
+            value="Cat"
+          />
+          <label className="radio-label" htmlFor="cat">Cat</label> 
         </div>
       </div>
       <div className="form-section">
