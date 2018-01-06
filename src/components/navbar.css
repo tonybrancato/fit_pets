@@ -1,10 +1,32 @@
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    background-color: #3f7dc5;
-    display: inline;
+.navbar {
+    background-color: #af8eb5;
   }
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: #af8eb5;
+  color: black;
+  font-weight: 400;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: black;
+  background-color: #e1bee7;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: black;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  background-color: #e1bee7;
+  
+}
 
