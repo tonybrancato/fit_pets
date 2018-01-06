@@ -1,7 +1,7 @@
 /*eslint-disable*/
 
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, focus, change } from 'redux-form';
 import { addWeight } from '../actions/pets'
 import Input from './input';
 import { required, nonEmpty, isTrimmed, length } from '../validators';
@@ -13,15 +13,18 @@ export class AddWeightForm extends React.Component {
     const petWeight = {weight, petId};    
     return this.props
     .dispatch(addWeight(petWeight, petId)) // create action to update the pet
-    .then(() => this.props.dispatch);
+    .then(() => this.props.dispatch)
+    .then(this.props.dispatch(change(this.props.form, 'weight', '')));
   }
   
   render() {
     return (
       <form
+        key={this.props.id}
+        id={this.props.id}
         className="add-weight-form"
-        onSubmit={this.props.handleSubmit(values =>
-          this.onSubmit(values))}>
+        onSubmit={
+          this.props.handleSubmit(values => this.onSubmit(values))}>
         <div>
           <Field
             component={Input}
@@ -42,7 +45,6 @@ export class AddWeightForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'add-weight',
   onSubmitFail: (errors, dispatch) =>
-    dispatch(focus('add-weight', Object.keys(errors)[0])),
+    dispatch(focus(form, Object.keys(errors)[0])),
   })(AddWeightForm);
