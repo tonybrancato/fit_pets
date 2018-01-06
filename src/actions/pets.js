@@ -48,7 +48,6 @@ export const getPets = () => (dispatch, getState) => {
 
 export const addPet = pet => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log(pet);
   return fetch(`${API_BASE_URL}/pets`, {
     method: 'POST',
     headers: {
@@ -86,7 +85,7 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(dispatch(push('/')))
+  // .then(dispatch(getPets()))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
@@ -99,3 +98,4 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
     }
   });  
 }
+
