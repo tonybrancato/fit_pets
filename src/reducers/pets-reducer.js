@@ -8,7 +8,7 @@ import {
 
 
 const initialState = {
-    data: ['pet1', 'pet2'],
+    data: [],
     error: null
 };
 
