@@ -3,12 +3,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Accordion, AccordionItem } from 'react-sanfona';
-import LineExample from './line-graph';
+import { Line } from 'react-chartjs-2';
+
 
 import './pet.css';
 import { getPets } from '../actions/pets';
 import AddWeightForm from './add-weight-form';
 import AddPetForm from './add-pet-form';
+import {store} from '../store';
 
 export class Pet extends React.Component {
   
@@ -17,31 +19,13 @@ export class Pet extends React.Component {
   }
 
   render() {
-    // const newPet = ['new-pet'];
-    // const newPetAccordion = (newPet).map((newPet, i) => {
-    //   return (
-    //     <div> 
-    //     <AccordionItem
-    //       key={i}
-    //       className="pet-box"
-    //       bodyClassName="pet-box-expanded" 
-    //       duration={400}
-    //       title="Add A New Pet!"
-    //       >
-    //       <AddPetForm />
-    //     </AccordionItem>
-    //   </div>        
-    //   );
-    // });
+    console.log(store.getState().pets.data);
 
-        
-
-    const pets = this.props.pets;
+    const pets = store.getState().pets.data;
     const accordionItems = (pets).map((pet, i) => {
-      console.log(pets);
       return (
         <AccordionItem
-          key={pet.id}
+          key={i}
           id={pet.id}
           className="pet-box" 
           expandedClassName	="pet-box-expanded" 
@@ -51,62 +35,40 @@ export class Pet extends React.Component {
               <h3>{`${pet.name}'s Current Weight: ${pet.lastWeight} pounds`}</h3>
               <h3>{`Age: ${pet.age}s`}</h3>
               <div className="chart">
-                <LineExample data={{
-                  labels: pet.weightDate,
-                  datasets: [
-                    {
-                      label: `${pet.name}'s Weight History`,
-                      fill: false,
-                      lineTension: 0.1,
-                      backgroundColor: 'rgba(75,192,192,0.4)',
-                      borderColor: 'rgba(75,192,192,1)',
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: 'rgba(75,192,192,1)',
-                      pointBackgroundColor: '#fff',
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                      pointHoverBorderColor: 'rgba(220,220,220,1)',
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      data: pet.weight,
-                    }
-                  ]
-                }} />
-              <AddWeightForm id={pet.id}/>
+                <Line 
+                  width={375}
+                  height={250}
+                  options={{
+                    maintainAspectRatio: false
+                  }}                
+                  data={{
+                    labels: pet.weightDate,
+                    datasets: [
+                      {
+                        label: `${pet.name}'s Weight History`,
+                        fill: false,
+                        backgroundColor: '#e1bee7',
+                        borderColor: '#ec97f9',
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        pointBorderColor: '#863895',
+                        pointBackgroundColor: '#e1bee7',
+                        pointBorderWidth: 5,
+                        pointHoverRadius: 7,
+                        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                        pointHoverBorderColor: '#863895',
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        data: pet.weight,
+                      }
+                    ]
+                  }
+                } />
+              <AddWeightForm form={`add-weight ${pet.id}`} key={i} id={pet.id}/>
               </div>
               
-              <div className="chart"><LineExample data={{
-                labels: pet.weightDate,
-                datasets: [
-                  {
-                    label: `${pet.name}'s Known Commands`,
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: 'rgba(75,192,192,0.4)',
-                    borderColor: 'rgba(75,192,192,1)',
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: 'rgba(75,192,192,1)',
-                    pointBackgroundColor: '#fff',
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                    pointHoverBorderColor: 'rgba(220,220,220,1)',
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: pet.weight,
-                  }
-                ]
-              }} />
-              {/* <AddDataBtn /> */}
+              <div className="chart">
               </div>
             </div>
         </AccordionItem>
@@ -114,20 +76,14 @@ export class Pet extends React.Component {
   })
     return (
       <div>
-        <h1 className=''>My Pets</h1>
+        <h1 className='pets-header'>My Pets</h1>
         <Accordion 
           key={this.props.id}
-          allowMultiple={true} 
+          // allowMultiple={true} 
           className="pet-parent">         
           {accordionItems}
         </Accordion>
-        {/* <Accordion 
-          allowMultiple={true} 
-          key='new-pet'
-          className="new-pet pet-parent">         
-          {newPetAccordion}
-      </Accordion> */}
-     </div>
+      </div>
     );
   }
 }
