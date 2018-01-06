@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCurrentUser, setAuthToken } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+import { Navbar, Nav, NavItem, NavDropdown, NavbarBrand, MenuItem } from 'react-bootstrap';
+import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 
 import './navbar.css';
+import {addPet} from '../actions/pets'
+import dashboard from './dashboard'
 
 export class NavBar extends React.Component {
 logOut() {
@@ -16,22 +20,38 @@ clearAuthToken();
 }
 
 render() {
-// Only render the log out button if we are logged in
-let logOutButton;
-if (this.props.loggedIn) {
-logOutButton = (
-  <button className="nav-btn" onClick={() => this.logOut()}>Log out</button>
-);
-}
-return (
-  <div className="nav">
-    <nav className="nav">
-      <Link className="nav-btn" to="/register"><button>Home</button></Link>
-      <Link className="nav-btn" to="/addpet">Add a Pet</Link>
-      {logOutButton}
-    </nav>
-  </div>
-);
+  let logOutNav;
+  let addPetNav;
+  let dashboardNav;
+  if (this.props.loggedIn) {
+  logOutNav = (
+    <NavItem onClick={() => this.logOut()}>Log out</NavItem>
+  );
+  addPetNav = <LinkContainer to="/addpet"><NavItem eventKey={2}>Add Pet</NavItem></LinkContainer>;
+  dashboardNav = <IndexLinkContainer to="/"><NavItem>Home</NavItem></IndexLinkContainer>;
+  }
+  const navbarInstance = (
+    <Navbar 
+      fixedTop={true}
+      collapseOnSelect>
+      <Navbar.Header>
+        <LinkContainer to='/'>
+        <Navbar.Brand>
+          <span>Fit Pets</span>
+        </Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+      <Nav>
+        {/* {dashboardNav} */}
+        {addPetNav}
+        {logOutNav}
+      </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+  return navbarInstance
 }
 }
 
