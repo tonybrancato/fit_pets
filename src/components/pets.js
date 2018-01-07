@@ -18,11 +18,11 @@ export class Pets extends React.Component {
   }
 
   render() {
-    const pets = (this.props.pets).map((pet) => {
-      return (
-        <Pet pet={pet}/>
-      );
-    });
+    // const pets = (this.props.pets).map((pet) => {
+    //   return (
+    //     <Pet pet={pet}/>
+    //   );
+    // });
     return (
       <div>
         <Accordion 
