@@ -32,6 +32,7 @@ export class Pets extends React.Component {
         {this.props.pets.map(pet => {
           return (
       <AccordionItem
+          key={pet.id}
           id={pet.id}
           className="pet-box" 
           expandedClassName	="pet-box-expanded" 
