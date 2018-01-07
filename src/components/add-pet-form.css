@@ -1,37 +1,40 @@
 .add-pet-form-parent {
     /* margin-left: 10%; */
     margin: 0 auto;
-    width: 200px;
+    width: 500px;
+    background-color: plum;
+    padding: 40px;
 }
 
 .form-header {
-    text-align: center
+    text-align: center;
+    padding: 10px;
+    margin-top: -15px;
+    border-bottom: 1px solid black;
 }
 
-.form-section {
-    margin: 20px;
-}
-
-.radio-label {
+/* .radio-section {
     display: inline;
+} */
+
+.radio-section input[type=radio] {
+    visibility: hidden;
+    display: none;
 }
 
-.add-pet-form {
-    border: 1px solid grey;
-    float: left;
+.radio-section label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 5px 20px;
+    margin: 5px;
+    cursor: pointer;
+    width: 100px;    
+}
+  
+.radio-section input[type=radio]:checked+label {
+    background-color: rgb(33, 48, 133);
+}
+
+.left-label {
     text-align: left;
-}
-
-.checkbox-label {
-    color: #404040;
-    /* float: right; */
-    font-size: 13px;
-    line-height: 18px;
-    padding-top: 6px;
-    text-align: left;
-    width: 40px;
-}
-
-.checkbox {
-    display: inline;
 }
