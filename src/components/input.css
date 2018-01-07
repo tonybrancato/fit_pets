@@ -1,23 +1,37 @@
 .form-error {
-  color: red;
+  color: #ff0000;
   text-align: center;
-}
-
-input[type=checkbox] {
+  font-weight: 600;
+  font-size: 18px;
+  text-shadow: 0px .1px 0px black;
   display: inline-block;
+  width: 400px;
 }
 
 input[type=radio] {
   margin: 5px;
 }
+
+input[type=text], input[type=number] {
+  margin: 5px;
+  width: 400px;
+  font-size: 2em;
+  border-radius: 3pt;
+}
+
 input {
   text-align: center;
   border: none;
-  border-bottom: 2px solid blueviolet;
+  border-bottom: 4px solid blueviolet;
   outline: none;
   margin: 10px;
 }
 
 input:focus {
-  border-bottom: 2px solid rgb(113, 223, 113);
+  border-bottom: 4px solid rgb(113, 223, 113);
+}
+
+label {
+  text-align: left;
+  font-size: 1.25em;
 }
