@@ -1,5 +1,7 @@
 .add-pet-form-parent {
-    margin-left: 10%;
+    /* margin-left: 10%; */
+    margin: 0 auto;
+    width: 200px;
 }
 .form-section {
     margin: 20px;
