@@ -3,8 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchProtectedData } from '../actions/protected-data';
-import Pet from './pet';
+import Pets from './pets';
 
 import './dashboard.css';
 
@@ -24,8 +23,8 @@ return <Redirect to="/" />;
 
 return (
   <div className="dashboard">
-
-    <Pet />
+    <h1 className='pets-header'>My Pets</h1>  
+    <Pets />
   </div>
 );
 }

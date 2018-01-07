@@ -13,7 +13,7 @@ return <Redirect to="/" />;
 
 return (
   <div className="home">
-    <h2>Add a Pet</h2>
+    <h2 className=''>Add a New Pet</h2>
     <AddPetForm />
   </div>
 );

@@ -11,7 +11,7 @@ export class HeaderBar extends React.Component {
 
         return (
             <div className="header-bar">
-                <h1>Fit Pets</h1>
+                <h1></h1>
             </div>
         );
     }

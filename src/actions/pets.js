@@ -1,10 +1,8 @@
 /*eslint-disable*/
 
 import { SubmissionError } from 'redux-form';
-
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
-
 import { push } from 'react-router-redux';
 
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
@@ -58,7 +56,8 @@ export const addPet = pet => (dispatch, getState) => {
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(dispatch(push('/')))
+  .then(dispatch(push('/dashboard')))
+  // .then(dispatch(push('/dashboard')))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
@@ -85,7 +84,9 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  // .then(dispatch(getPets()))
+  .then(getState().pets.data)
+  // .then(dispatch(fetchPetSuccess(weight)))
+  .then(dispatch(getPets()))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
