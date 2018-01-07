@@ -24,6 +24,7 @@ return this.props
 render() {
 return (
   <div className="add-pet-form-parent">
+    <h2 className='form-header'>Add a Pet</h2>
     <form
       className="add-pet-form"
       onSubmit={this.props.handleSubmit(values =>
