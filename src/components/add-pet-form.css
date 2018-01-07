@@ -3,6 +3,11 @@
     margin: 0 auto;
     width: 200px;
 }
+
+.form-header {
+    text-align: center
+}
+
 .form-section {
     margin: 20px;
 }
@@ -25,14 +30,6 @@
     padding-top: 6px;
     text-align: left;
     width: 40px;
-}
-
-input[type=checkbox] {
-    display: inline-block;
-}
-
-input[type=radio] {
-    margin: 5px;
 }
 
 .checkbox {
