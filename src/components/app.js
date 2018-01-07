@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 
 import NavBar from './navbar';
 import HeaderBar from './header-bar';
@@ -55,10 +55,12 @@ render() {
 return (
   <div className="app">
     <NavBar />
-    <Route exact path="/" component={LandingPage} />
-    <Route exact path="/dashboard" component={Dashboard} />
-    <Route exact path="/register" component={RegistrationPage} />
-    <Route exact path="/addpet" component={AddPetPage} />
+    <Switch>
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/register" component={RegistrationPage} />
+      <Route path="/addpet" component={AddPetPage} />
+    </Switch>
   </div>
 );
 }
