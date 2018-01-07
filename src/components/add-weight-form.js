@@ -12,9 +12,9 @@ export class AddWeightForm extends React.Component {
     const petId = this.props.id;
     const petWeight = {weight, petId};    
     return this.props
-    .dispatch(addWeight(petWeight, petId)) // create action to update the pet
+    .dispatch(addWeight(petWeight, petId)) 
     .then(() => this.props.dispatch)
-    .then(this.props.dispatch(change(this.props.form, 'weight', '')));
+    .then(this.props.dispatch(change(this.props.form, 'weight', ''))); // resets form value
   }
   
   render() {
@@ -46,5 +46,5 @@ export class AddWeightForm extends React.Component {
 
 export default reduxForm({
   onSubmitFail: (errors, dispatch) =>
-    dispatch(focus(form, Object.keys(errors)[0])),
+    dispatch(focus(this.props.form, Object.keys(errors)[0])),
   })(AddWeightForm);
