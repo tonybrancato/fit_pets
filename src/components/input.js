@@ -25,11 +25,13 @@ render() {
 
   return (
   <div className="form-input">
+    {/* {error} */}
     <label htmlFor={this.props.input.name}>
       {this.props.label}
-      {/* {error}
-      {warning} */}
-    </label>
+      {error}
+      {warning}
+    </label>    
+
     <input
       placeholder={this.props.placeholder}
       {...this.props.input}
@@ -37,8 +39,7 @@ render() {
       type={this.props.type}
       ref={input => (this.input = input)}
     />
-      {error}
-      {warning}
+      {/* {warning} */}
   </div>
   );
 }}
