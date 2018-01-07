@@ -38,18 +38,19 @@ class renderDatePicker extends React.Component {
       input, placeholder,
       meta: {touched, error}
     } = this.props
-
     return (
       <div>
+        {touched && error && <div className="form-error">{error}</div>}
         <DatePicker
           {...input}
           placeholder={placeholder}
           dateFormat="MM-DD-YYYY"
           showYearDropdown
+          showMonthDropdown
           selected={input.value ? moment(input.value, "MM-DD-YYYY") : null}
           onChange={this.handleChange}
         />
-        {touched && error && <span>{error}</span>}
+        
       </div>
     )
   }
