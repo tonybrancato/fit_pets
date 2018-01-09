@@ -13,7 +13,6 @@ return <Redirect to="/" />;
 
 return (
   <div className="home">
-    <h2>Add a Pet</h2>
     <AddPetForm />
   </div>
 );
@@ -21,6 +20,6 @@ return (
 
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
-  });
+});
 
 export default connect(mapStateToProps)(AddPetPage);
