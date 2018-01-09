@@ -9,38 +9,31 @@ import Pet from './pet';
 import './dashboard.css';
 
 export class Dashboard extends React.Component {
-// componentDidMount() {
-// if (!this.props.loggedIn) {
-// return;
-// }
-// this.props.dispatch(fetchProtectedData());
-// }
 
 render() {
 // Only visible to logged in users
-if (!this.props.loggedIn) {
-return <Redirect to="/" />;
-}
+  if (!this.props.loggedIn) {
+    return <Redirect to="/" />;
+  }
 
-return (
-  <div className="dashboard">
+  return (
 
-    <Pet />
-  </div>
-);
+    <div className="dashboard">
+      <Pet />
+    </div>
+  );
 }
 }
 
 const mapStateToProps = (state) => {
   const { currentUser } = state.auth;
   return {
-  loggedIn: currentUser !== null,
-  username: currentUser ? state.auth.currentUser.username : '',
-  name: currentUser
-    ? `${currentUser.firstName} ${currentUser.lastName}`
-    : '',
-  // protectedData: state.protectedData.data,
+    loggedIn: currentUser !== null,
+    username: currentUser ? state.auth.currentUser.username : '',
+    name: currentUser
+      ? `${currentUser.firstName} ${currentUser.lastName}`
+      : '',
   };
-  };
+};
 
 export default connect(mapStateToProps)(Dashboard);
