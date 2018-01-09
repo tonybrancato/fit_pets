@@ -25,20 +25,20 @@ render() {
 
   return (
   <div className="form-input">
-    {/* {error} */}
-    <label htmlFor={this.props.input.name}>
-      {this.props.label}
-      {error}
-      {warning}
-    </label>    
-
+    {error}
+    {warning}
     <input
       placeholder={this.props.placeholder}
       {...this.props.input}
-      id={this.props.input.name}
+      name={this.props.name}
+      id={this.props.id}
       type={this.props.type}
       ref={input => (this.input = input)}
     />
+    <label htmlFor={this.props.id}>
+      {this.props.label}
+      {/* {error} */}
+    </label>    
       {/* {warning} */}
   </div>
   );
