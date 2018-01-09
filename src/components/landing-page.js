@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import LoginForm from './login-form';
-
+import { Helmet } from 'react-helmet';
 export function LandingPage(props) {
 // If we are logged in redirect straight to the user's dashboard
 if (props.loggedIn) {
@@ -14,7 +14,11 @@ return <Redirect to="/dashboard" />;
 
 return (
   <div className="home">
-    {/* <h2>Pet Fit</h2> */}
+   <Helmet>
+      <style type="text/css">
+        {` body { background-image: url("/src/imgs/bw-dog.jpeg"); }`}
+      </style>     
+    </Helmet>
     <h3>Track, Update, and View Information About Your Pets</h3>
     <LoginForm />
     <Link to="/register">Register</Link>
