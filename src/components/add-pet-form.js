@@ -5,6 +5,7 @@ import { Field, reduxForm /* focus */} from 'redux-form';
 import renderDatePicker from './datepicker';
 import { addPet } from '../actions/pets';
 import Input from './input';
+import { withRouter } from 'react-router-dom';
 import { required, nonEmpty, isTrimmed, length } from '../validators';
 import './add-pet-form.css';
 
@@ -17,8 +18,8 @@ export class AddPetForm extends React.Component {
     species, sex, name, birthday, weight, commands
     };
   return this.props
-    .dispatch(addPet(pet))
-    .then(() => this.props.dispatch);
+    .dispatch(addPet(pet, this.props.history))
+    // .then(() => this.props.dispatch)
   }
 
   render() {
@@ -124,6 +125,6 @@ export class AddPetForm extends React.Component {
 
 export default reduxForm({
   form: 'add-pet',
-  onSubmitFail: (errors, dispatch) =>
-    dispatch(focus('add-pet', Object.keys(errors)[0])),
-  })(AddPetForm);
+  // onSubmitFail: (errors, dispatch) =>
+  //   dispatch(focus('add-pet', Object.keys(errors)[0])),
+  })(withRouter(AddPetForm));
