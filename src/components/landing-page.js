@@ -25,9 +25,8 @@ return (
             }`}
       </style>     
     </Helmet>
-    <h3>Track, Update, and View Information About Your Pets</h3>
+    {/* <h3>Track, Update, and View Information About Your Pets</h3> */}
     <LoginForm />
-    <Link to="/register">Register</Link>
   </div>
 );
 }
