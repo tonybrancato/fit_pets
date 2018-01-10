@@ -36,11 +36,11 @@ render() {
       collapseOnSelect>
       <Navbar.Header>
         <LinkContainer to='/'>
-        <Navbar.Brand>
-          <span>Fit Pets</span>
-        </Navbar.Brand>
+          <Navbar.Brand>
+            <span>Fit Pets</span>
+          </Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle />
+      <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
       <Nav>
