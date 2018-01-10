@@ -58,9 +58,9 @@ export class App extends React.Component {
       <div className="app">
         <NavBar />
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/register" component={RegistrationPage} />
-        <Route exact path="/addpet" component={AddPetPage} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/register" component={RegistrationPage} />
+        <Route path="/addpet" component={AddPetPage} />
       </div>
     );
   }

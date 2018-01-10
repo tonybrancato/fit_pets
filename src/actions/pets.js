@@ -5,8 +5,6 @@ import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
-import { push } from 'react-router-redux';
-
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
 export const fetchPetSuccess = data => ({
   type: FETCH_PET_SUCCESS,
@@ -17,6 +15,12 @@ export const FETCH_PET_ERROR = 'FETCH_PET_ERROR';
 export const fetchPetError = error => ({
   type: FETCH_PET_ERROR,
   error,
+});
+
+export const ADD_PET_SUCCESS = 'ADD_PET_SUCCESS';
+export const addPetSuccess = data => ({
+  type: ADD_PET_SUCCESS,
+  data,
 });
 
 export const getPets = () => (dispatch, getState) => {
@@ -46,7 +50,7 @@ export const getPets = () => (dispatch, getState) => {
   });
 };
 
-export const addPet = pet => (dispatch, getState) => {
+export const addPet = (pet, history) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/pets`, {
     method: 'POST',
@@ -58,7 +62,7 @@ export const addPet = pet => (dispatch, getState) => {
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(dispatch(push('/')))
+  .then(history.push('/'))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
