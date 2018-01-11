@@ -1,0 +1,20 @@
+
+.add-weight-form input {
+  font-size: 16px;
+  width: 40%;
+}
+
+.add-weight-form button {
+  border-radius: 4pt;
+  padding: 3px 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border: 3px solid rgba(138, 43, 226, 1);
+  background-color: rgba(255, 255, 255, .8);
+  cursor: pointer;
+}
+
+.add-weight-form button:hover {
+  color: white;
+  background: rgba(138, 43, 226, .7);
+}
