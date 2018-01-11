@@ -5,6 +5,7 @@ import { Field, reduxForm, focus, change } from 'redux-form';
 import { addWeight } from '../actions/pets'
 import Input from './input';
 import { required, nonEmpty, isTrimmed, length } from '../validators';
+import './add-weight-form.css'
 
 export class AddWeightForm extends React.Component {
   onSubmit(values) {
@@ -25,14 +26,12 @@ export class AddWeightForm extends React.Component {
         className="add-weight-form"
         onSubmit={
           this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div>
+        <div className='weight-entry'>
           <Field
             component={Input}
             type="number"
             name="weight"
             validate={[required, nonEmpty, isTrimmed, length({ min: 1, max: 3})]}/>
-        </div>
-        <div>
           <button
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
