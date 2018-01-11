@@ -27,7 +27,6 @@ return (
       </style>     
     </Helmet>
     <RegistrationForm />
-    <Link to="/">Login</Link>
   </div>
 );
 }
