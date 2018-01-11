@@ -23,6 +23,13 @@ export const addPetSuccess = data => ({
   data,
 });
 
+export const ADD_PET_ERROR = 'ADD_PET_ERROR';
+export const addPetError = error => ({
+  type: ADD_PET_ERROR,
+  error,
+});
+
+
 export const getPets = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const USER = getState().auth.currentUser.id;
@@ -50,7 +57,7 @@ export const getPets = () => (dispatch, getState) => {
   });
 };
 
-export const addPet = (pet, history) => (dispatch, getState) => {
+export const addPet = (data, history) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/pets`, {
     method: 'POST',
@@ -58,10 +65,11 @@ export const addPet = (pet, history) => (dispatch, getState) => {
     'content-type': 'application/json',
     authorization: `Bearer ${authToken}`,
     },
-    body: JSON.stringify(pet),
+    body: JSON.stringify(data),
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
+  .then((data) => dispatch(addPetSuccess(data)))
   .then(history.push('/'))
   .catch((err) => {
     const { reason, message, location } = err;
