@@ -29,11 +29,29 @@ export const addPetError = error => ({
   error,
 });
 
+export const ADD_WEIGHT_SUCCESS = 'ADD_WEIGHT_SUCCESS';
+export const addWeightSuccess = (weight, petId) => ({
+  type: ADD_WEIGHT_SUCCESS,
+  weight,
+  petId
+});
+
+export const ADD_WEIGHT_ERROR = 'ADD_WEIGHT_ERROR';
+export const addWeightError = error => ({
+  type: ADD_WEIGHT_ERROR,
+  error,
+});
+
+export const DELETE_PET_SUCCESS = 'DELETE_PET_SUCCESS';
+export const deletePetSuccess = () => ({
+  type: DELETE_PET_SUCCESS,
+  petIndex
+});
+
 
 export const getPets = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const USER = getState().auth.currentUser.id;
-  console.log(USER);
   return fetch(`${API_BASE_URL}/pets/${USER}`, {
     method: 'GET',
     headers: {
@@ -86,18 +104,18 @@ export const addPet = (data, history) => (dispatch, getState) => {
 
 export const addWeight = (weight, petId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log(weight, petId, authToken);
+  console.log(weight, petId);
   return fetch(`${API_BASE_URL}/pets/weight/${petId}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
       authorization: `Bearer ${authToken}`
     },
-    body: JSON.stringify(weight)
+    body: JSON.stringify({weight: weight, id: petId})
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  // .then(dispatch(getPets()))
+  .then(dispatch(addWeightSuccess(weight, petId)))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
@@ -111,3 +129,31 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
   });  
 }
 
+export const deletePet = (petId, history, petIndex) => (dispatch, getState) => {
+  console.log(petId);
+  const USER = getState().auth.currentUser.id;
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/pets/${USER}/${petId}`, {
+    method: 'delete',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${authToken}`
+    },    
+    body: JSON.stringify(petId)    
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(history.push('/'))
+  .then(dispatch(deletePetSuccess(petIndex)))
+  .catch((err) => {
+    const { reason, message, location } = err;
+    if (reason === 'ValidationError') {
+    // Convert ValidationErrors into SubmissionErrors for Redux Form
+      return Promise.reject(
+        new SubmissionError({
+          [location]: message,
+        }),
+      );
+    }
+  });    
+}
