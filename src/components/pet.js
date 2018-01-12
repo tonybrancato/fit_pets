@@ -10,22 +10,22 @@ import './pet.css';
 import { getPets } from '../actions/pets';
 import AddWeightForm from './add-weight-form';
 import AddPetForm from './add-pet-form';
-import {store} from '../store';
+import { store } from '../store';
+import DeletePet from './delete-pet-button'
 
 export class Pet extends React.Component {
   
   componentDidMount() {
-    this.props.dispatch(getPets());
+    if (this.props.pets.length === 0) {
+      this.props.dispatch(getPets());
+    }
   }
 
   render() {
-    console.log(store.getState().pets.data);
-
-    const pets = store.getState().pets.data;
-    const accordionItems = (pets).map((pet, i) => {
+    const accordionItems = (this.props.pets).map((pet, index) => {
       return (
         <AccordionItem
-          key={i}
+          key={index}
           id={pet.id}
           className="pet-box" 
           expandedClassName	="pet-box-expanded" 
@@ -65,11 +65,14 @@ export class Pet extends React.Component {
                     ]
                   }
                 } />
-              <AddWeightForm form={`add-weight ${pet.id}`} key={i} id={pet.id}/>
+              <AddWeightForm 
+                form={`add-weight ${pet.id}`} 
+                key={index} 
+                id={pet.id}/>
               </div>
-              
-              <div className="chart">
-              </div>
+              <DeletePet 
+                name={pet.name}
+                id={pet.id}/>
             </div>
         </AccordionItem>
       );
