@@ -7,7 +7,6 @@ import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
 import { Link } from 'react-router-dom';
 
-
 import './login-form.css';
 
 
@@ -26,7 +25,7 @@ render() {
     );
   }
   return (
-    <div className='login-form-container'>
+    <div className='form-container'>
       <form
         className="login-form"
         onSubmit={this.props.handleSubmit(values =>
