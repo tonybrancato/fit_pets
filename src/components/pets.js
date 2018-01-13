@@ -23,12 +23,11 @@ export class Pet extends React.Component {
 
   render() {
     const accordionItems = (this.props.pets).map((pet, index) => {
-      console.log(index);
       return (
         <AccordionItem
           key={index}
           id={pet.id}
-          className="pet-box" 
+          className="pet-box col-9" 
           expandedClassName	="pet-box-expanded" 
           duration={200}
           title={`${pet.name} the ${pet.species}`} >
@@ -49,7 +48,7 @@ export class Pet extends React.Component {
                         label: `${pet.name}'s Weight History`,
                         fill: true,
                         // fontColor: '#fff',
-                        backgroundColor: 'rgba(138, 43, 226, .5)',
+                        backgroundColor: 'rgba(192, 95, 255, .5)',
                         borderColor: '#fff',
                         // borderCapStyle: 'butt',
                         borderDash: [],
@@ -59,7 +58,7 @@ export class Pet extends React.Component {
                         pointBorderWidth: 2,
                         pointHoverRadius: 6,
                         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                        pointHoverBorderColor: 'rgb(75,192,192)',
+                        pointHoverBorderColor: '#15e5e5',
                         pointHoverBorderWidth: 1,
                         pointRadius: 4,
                         data: pet.weight,
