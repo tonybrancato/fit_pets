@@ -9,23 +9,25 @@ S - #e1bee7
 S Light - #fff1ff
 S Dark - #af8eb5
 */
-
+body {
+    background-color: rgba(0, 0, 0, .4)
+}
 .react-sanfona {
-    min-width: 800px;
     max-width: 1200px;   
     padding: 15px;    
 }
 
 .react-sanfona-item-expanded .react-sanfona-item-title {
-    background-color: #af8eb5;
+    background-color: rgba(138, 43, 226, .7);
+    color: #ffffff;
 }
 
 .pet-box-expanded {
     max-width: 900px;
     margin: 0px auto;
-    background-color: #fff1ff;
+    background-color: rgba(255, 255, 255, .6);
     border-radius: 3pt;
-    border: 1.5px solid black;
+    border: 3px solid black;
     padding: 10px !important;
 }
 
@@ -34,31 +36,31 @@ S Dark - #af8eb5
 }
 
 .react-sanfona-item-title	{
+    cursor: pointer;
     font-size: 2.5em;
     text-align: center;
-    background-color: #b867c6;
+    background-color: rgba(138, 43, 226, .9);
     padding: 12px;
     border-radius: 3pt;
-    border: 1.5px solid black;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;    
+    border: 3px solid black;
 }
 
 .react-sanfona-item-title:nth-child(even) {
     background-color: #e1bee7;
 }
 
-.test {
-    color: red;
-}
-
 .chart {
     display: inline-block; 
     width: 375px;
     height: 250px;
+    /* color: #ffffff; */
 }
 .pets-header {
     margin-top: 10%;
 }
 
-/* @media only screen and (min-width: 800px) {
+@media only screen and (max-width: 800px) {
     
-} */
+}
