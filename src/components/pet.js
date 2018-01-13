@@ -23,6 +23,7 @@ export class Pet extends React.Component {
 
   render() {
     const accordionItems = (this.props.pets).map((pet, index) => {
+      console.log(index);
       return (
         <AccordionItem
           key={index}
@@ -32,7 +33,7 @@ export class Pet extends React.Component {
           duration={200}
           title={`${pet.name} the ${pet.species}`} >
             <div>
-              <h3>{`${pet.name}'s Current Weight: ${pet.lastWeight} pounds`}</h3>
+              <h3>{`${pet.name}'s Current Weight: ${pet.weight.slice(-1)[0]} pounds`}</h3>
               <h3>{`Age: ${pet.age}s`}</h3>
               <div className="chart">
                 <Line 
@@ -46,20 +47,21 @@ export class Pet extends React.Component {
                     datasets: [
                       {
                         label: `${pet.name}'s Weight History`,
-                        fill: false,
-                        backgroundColor: '#e1bee7',
-                        borderColor: '#ec97f9',
-                        borderCapStyle: 'butt',
+                        fill: true,
+                        // fontColor: '#fff',
+                        backgroundColor: 'rgba(138, 43, 226, .5)',
+                        borderColor: '#fff',
+                        // borderCapStyle: 'butt',
                         borderDash: [],
                         borderDashOffset: 0.0,
-                        pointBorderColor: '#863895',
-                        pointBackgroundColor: '#e1bee7',
-                        pointBorderWidth: 5,
-                        pointHoverRadius: 7,
+                        pointBorderColor: 'rgba(138, 43, 226, 1)',
+                        pointBackgroundColor: 'rgba(138, 43, 226, 1)',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 6,
                         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                        pointHoverBorderColor: '#863895',
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
+                        pointHoverBorderColor: 'rgb(75,192,192)',
+                        pointHoverBorderWidth: 1,
+                        pointRadius: 4,
                         data: pet.weight,
                       }
                     ]
@@ -70,7 +72,9 @@ export class Pet extends React.Component {
                 key={index} 
                 id={pet.id}/>
               </div>
-              <DeletePet 
+              <DeletePet
+                form={`delete-pet ${pet.id}`}
+                petIndex={index} 
                 name={pet.name}
                 id={pet.id}/>
             </div>

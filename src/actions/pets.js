@@ -43,9 +43,10 @@ export const addWeightError = error => ({
 });
 
 export const DELETE_PET_SUCCESS = 'DELETE_PET_SUCCESS';
-export const deletePetSuccess = () => ({
+export const deletePetSuccess = (petId, petIndex) => ({
   type: DELETE_PET_SUCCESS,
-  petIndex
+  petIndex,
+  petId
 });
 
 
@@ -129,8 +130,8 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
   });  
 }
 
-export const deletePet = (petId, history, petIndex) => (dispatch, getState) => {
-  console.log(petId);
+export const deletePet = (petId, petIndex, history) => (dispatch, getState) => {
+  console.log(petIndex);
   const USER = getState().auth.currentUser.id;
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/pets/${USER}/${petId}`, {
@@ -143,8 +144,8 @@ export const deletePet = (petId, history, petIndex) => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
+  .then(dispatch(deletePetSuccess(petIndex, petId)))
   .then(history.push('/'))
-  .then(dispatch(deletePetSuccess(petIndex)))
   .catch((err) => {
     const { reason, message, location } = err;
     if (reason === 'ValidationError') {
