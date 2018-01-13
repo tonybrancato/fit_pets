@@ -3,8 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchProtectedData } from '../actions/protected-data';
-import Pet from './pet';
+import Pet from './pets';
 
 import './dashboard.css';
 
