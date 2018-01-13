@@ -9,7 +9,6 @@ import './delete-pet-button.css';
 
 export class DeletePet extends React.Component {
   onSubmit(index, petId) {
-    console.log(this.props.id, index);
     return this.props
     .dispatch(deletePet(this.props.id, index, this.props.history)) 
     .then(() => this.props.dispatch)
@@ -18,8 +17,7 @@ export class DeletePet extends React.Component {
   render() {
     const petId = this.props.id;
     const petIndex = this.props.petIndex;
-    console.log(petIndex);
-    console.log(petId);
+
     return (
       <form
         key={this.props.id}
