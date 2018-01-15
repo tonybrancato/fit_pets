@@ -10,11 +10,19 @@ S Light - #fff1ff
 S Dark - #af8eb5
 */
 body {
-    background-color: rgba(0, 0, 0, .4)
+    background-color: rgba(0, 0, 0, .4);
+    /* width: 100%; */
 }
+
+.pet-parent {
+    /* width: 90%; */
+    text-align: center;
+}
+
 .react-sanfona {
-    max-width: 1200px;   
     padding: 15px;    
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .react-sanfona-item-expanded .react-sanfona-item-title {
@@ -23,16 +31,18 @@ body {
 }
 
 .pet-box-expanded {
-    max-width: 900px;
-    margin: 0px auto;
-    background-color: rgba(255, 255, 255, .6);
+    /* max-width: 900px; */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, .8);
     border-radius: 3pt;
     border: 3px solid black;
-    padding: 10px !important;
+    padding: 5px !important;
 }
 
 .react-sanfona-item {
     padding: 5px;
+    /* min-width: 80%; */
+    /* max-width: 1000px; */
 }
 
 .react-sanfona-item-title	{
@@ -43,6 +53,7 @@ body {
     padding: 12px;
     border-radius: 3pt;
     color: #ffffff;
+    margin: 0px auto;
     text-shadow: 1px 1px 1px #000;    
     border: 3px solid black;
 }
@@ -50,17 +61,43 @@ body {
 .react-sanfona-item-title:nth-child(even) {
     background-color: #e1bee7;
 }
+.chart-parent {
+    width: 100%;
+    text-align: center;
+}
 
 .chart {
     display: inline-block; 
-    width: 375px;
-    height: 250px;
-    /* color: #ffffff; */
+    /* width: 80%; */
+    height: 250px;    
+    /* margin: 0 auto; */
+
+    /* padding: -10px; */
 }
+canvas {
+}
+/* .chart {
+
+} */
 .pets-header {
     margin-top: 10%;
 }
 
-@media only screen and (max-width: 800px) {
-    
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+    .chart, .food {
+        display: inline-block; 
+        width: 100%;
+    }
+    .react-sanfona-item-title {
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
 }
