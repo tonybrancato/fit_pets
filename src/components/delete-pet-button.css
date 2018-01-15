@@ -5,7 +5,8 @@
   float: right;
   border-radius: 4pt;
   border: 2px solid #8a2be2;
-  background-color: rgb(250, 214, 214)
+  background-color: rgb(250, 214, 214);
+  cursor: pointer;
 }
 
 .delete-btn:hover {
