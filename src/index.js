@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './store'
 import App from './components/app';
 import './index.css';
+// import './grid.css';
 
 
 ReactDOM.render(
