@@ -1,11 +1,10 @@
 // import React from 'react';
 // import {shallow} from 'enzyme';
 
-// import NavBar from './navbar'; 
+// import Input from './input'; 
 
-// describe('<NavBar />', () => {
+// describe('<Input />', () => {
 //     it('Renders without crashing', () => {
-//         shallow(<NavBar />);
+//         shallow(<Input />);
 //     });
 // });
-// // 
