@@ -31,12 +31,12 @@ export class Pet extends React.Component {
           expandedClassName	="pet-box-expanded" 
           duration={200}
           title={`${pet.name} the ${pet.species}`} >
-            <div>
+            <div className='chart-parent'>
               <h3>{`${pet.name}'s Current Weight: ${pet.weight.slice(-1)[0]} pounds`}</h3>
               <h3>{`Age: ${pet.age}s`}</h3>
               <div className="chart">
                 <Line 
-                  width={375}
+                  // width={375}
                   height={250}
                   options={{
                     maintainAspectRatio: false
@@ -66,10 +66,16 @@ export class Pet extends React.Component {
                     ]
                   }
                 } />
+
               <AddWeightForm 
                 form={`add-weight ${pet.id}`} 
                 key={index} 
                 id={pet.id}/>
+              </div>
+              <div className='food'>
+                <h3>
+                  Food is {pet.foodBrand}
+                </h3>
               </div>
               <DeletePet
                 form={`delete-pet ${pet.id}`}
@@ -81,12 +87,10 @@ export class Pet extends React.Component {
       );
   })
     return (
-      <div>
+      <div className='pet-parent'>
         <h1 className='pets-header'>My Pets</h1>
         <Accordion 
-          key={this.props.id}
-          // allowMultiple={true} 
-          className="pet-parent">         
+          key={this.props.id}>         
           {accordionItems}
         </Accordion>
       </div>
