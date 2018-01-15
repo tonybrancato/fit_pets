@@ -16,6 +16,7 @@
 }
 
 .form-header {
+    font-weight: 600;    
     text-align: center;
     padding: 10px;
     margin-top: -15px;
@@ -86,4 +87,20 @@ input[type=radio]:checked + label, .add-pet-form button:hover {
     border: 3px solid rgba(138, 43, 226, .7);
     background-color: rgba(255, 255, 255, .8);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+    .add-pet-form-parent {
+        margin: 0 auto;
+        width: 80%;
+        background-color: rgba(255, 255, 255, .6);        
+    }
+    .form-header {
+        color: #000;
+        border-bottom: 2px solid #000;        
+    }
+    .add-pet-form-parent input {
+        width: 80%;
+        font-size: 1.5em;
+    }
 }
