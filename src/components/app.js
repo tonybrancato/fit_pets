@@ -4,14 +4,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import NavBar from './navbar';
+// import NavBar from './navbar';
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import { refreshAuthToken } from '../actions/auth';
 import AddPetPage from './add-pet-page';
-// import { navBar } from './navbar';
+// import NavBar from './navbar';
 
 export class App extends React.Component {
 
@@ -56,7 +56,6 @@ export class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <NavBar />
         <Route exact path="/" component={LandingPage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/register" component={RegistrationPage} />
