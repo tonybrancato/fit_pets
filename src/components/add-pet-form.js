@@ -12,10 +12,10 @@ import './add-pet-form.css';
 export class AddPetForm extends React.Component {
   onSubmit(values) {
   const {
-    species, sex, name, birthday, weight, commands
+    species, sex, name, birthday, weight, food
     } = values;
   const pet = {
-    species, sex, name, birthday, weight, commands
+    species, sex, name, birthday, weight, food
     };
   return this.props
     .dispatch(addPet(pet, this.props.history))
@@ -100,6 +100,17 @@ export class AddPetForm extends React.Component {
               />
             </div>
           </div>
+          <div className="form-section">
+          <div className='left-label'><label className='form-label'>Food Brand</label></div>
+            <div>
+              <Field
+                type="text"
+                component={Input}
+                name="food"
+                validate={[required, nonEmpty]}
+              />
+            </div>
+          </div>          
           <div className="form-section">
           <div className='left-label'><label className='form-label'>Weight</label></div>
             <div>
