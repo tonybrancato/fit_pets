@@ -1,11 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+nav {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+}
+
 .navbar {
-    background-color: #5300af;
+    background-color: rgba(83, 0, 175, 1);
   }
+
+li.active.navbar-brand, li.active.navbar-brand a {
+  list-style: none;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+li.active.navbar-brand, li.active.navbar-brand a:hover {
+
+}
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
   background-color: #5300af;
   color: #ffffff;
   font-weight: 400;
+}
+
+.navbar-default {
+  border-color: #ffffff;
 }
 
 .navbar-default .navbar-brand {
