@@ -22,11 +22,20 @@ return (
       <title>Fit Pets - Log In</title>     
       <style type="text/css">
         {` body { 
+          min-height: 640px;
           background-image: url(${bwdog}); 
           background-repeat: no-repeat;
           background-size: cover;
           height: 100vh;
           overflow: hidden;          
+        }
+        @media only screen and (max-width: 767px) {
+          body {
+            background-size: 1024x 768px;
+            background-position: center;
+            height: 100%;
+            overflow: visible;          
+          }
         }`}
       </style>     
     </Helmet>
@@ -48,9 +57,6 @@ return (
            Love.</p>
       </div>
     </Typist>
-
-
-    {/* <h3>Track, Update, and View Information About Your Pets</h3> */}
     <LoginForm />
   </div>
 );
