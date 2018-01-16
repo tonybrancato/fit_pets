@@ -1,22 +1,22 @@
 /*eslint-disable*/
 
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Accordion, AccordionItem } from 'react-sanfona';
 import { Line } from 'react-chartjs-2';
-
-
 import './pet.css';
 import { getPets } from '../actions/pets';
 import AddWeightForm from './add-weight-form';
 import AddPetForm from './add-pet-form';
 import { store } from '../store';
 import DeletePet from './delete-pet-button'
-
+import PetsHeader from './pets-header';
 export class Pet extends React.Component {
   
   componentDidMount() {
     if (this.props.pets.length === 0) {
+      console.log('getting pets');
       this.props.dispatch(getPets());
     }
   }
@@ -36,7 +36,6 @@ export class Pet extends React.Component {
               <h3>{`Age: ${pet.age}s`}</h3>
               <div className="chart">
                 <Line 
-                  // width={375}
                   height={250}
                   options={{
                     maintainAspectRatio: false
@@ -47,10 +46,8 @@ export class Pet extends React.Component {
                       {
                         label: `${pet.name}'s Weight History`,
                         fill: true,
-                        // fontColor: '#fff',
                         backgroundColor: 'rgba(192, 95, 255, .5)',
                         borderColor: '#fff',
-                        // borderCapStyle: 'butt',
                         borderDash: [],
                         borderDashOffset: 0.0,
                         pointBorderColor: 'rgba(138, 43, 226, 1)',
@@ -88,7 +85,7 @@ export class Pet extends React.Component {
   })
     return (
       <div className='pet-parent'>
-        <h1 className='pets-header'>My Pets</h1>
+        <PetsHeader />
         <Accordion 
           key={this.props.id}>         
           {accordionItems}
