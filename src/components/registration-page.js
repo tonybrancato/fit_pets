@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-
+import bwdog from './imgs/bwdog.jpg';
 import RegistrationForm from './registration-form';
 import { Helmet } from 'react-helmet';
 import './landing-page.css';
@@ -29,10 +29,11 @@ return (
       <title>Fit Pets - Register</title>
       <style type="text/css">
          {` body { 
-            background-image: url("https://cdn.pixabay.com/photo/2015/04/10/00/47/dog-715545_1280.jpg"); 
+            background-image: url(${bwdog}); 
             background-repeat: no-repeat;
             background-size: cover;
-            overflow: 'hidden';
+            height: 100vh;
+            overflow: hidden;   
             }`}
       </style>     
     </Helmet>
