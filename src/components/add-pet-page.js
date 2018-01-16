@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import AddPetForm from './add-pet-form';
 import NavBar from './navbar';
-import bwcat from './imgs/bwcat.jpg'
+import bwcat from './imgs/bwcat.jpg';
 import paw from './imgs/paw.svg';
 
 export function AddPetPage(props) {
