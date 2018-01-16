@@ -4,10 +4,3 @@ div.dashboard {
   justify-content: center;
   align-items: center;
 }
-
-body { 
-  background-image: url("https://cdn.pixabay.com/photo/2014/04/03/00/42/footprints-309158_1280.png"); 
-  background-repeat: space;
-  background-color: #00b2b3;
-  overflow: 'hidden';
-}
