@@ -6,6 +6,7 @@ import { Link, Redirect } from 'react-router-dom';
 import LoginForm from './login-form';
 import { Helmet } from 'react-helmet';
 import Typist from 'react-typist';
+import bwdog from './imgs/bwdog.jpg';
 import './landing-page.css';
 
 export function LandingPage(props) {
@@ -17,6 +18,18 @@ if (props.loggedIn) {
 
 return (
   <div className="home">
+    <Helmet>
+      <title>Fit Pets - Log In</title>     
+      <style type="text/css">
+        {` body { 
+          background-image: url(${bwdog}); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 100vh;
+          overflow: hidden;          
+        }`}
+      </style>     
+    </Helmet>
     <Typist
       cursor={{
         show: true,
@@ -35,19 +48,7 @@ return (
            Love.</p>
       </div>
     </Typist>
-    <Helmet>
-      <title>Fit Pets - Log In</title>     
-      <style type="text/css">
-        {` body { 
-          background-image: url("https://cdn.pixabay.com/photo/2015/04/10/00/47/dog-715545_1280.jpg"); 
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        html {
-          overflow: hidden;
-        }    `}
-      </style>     
-    </Helmet>
+
 
     {/* <h3>Track, Update, and View Information About Your Pets</h3> */}
     <LoginForm />
