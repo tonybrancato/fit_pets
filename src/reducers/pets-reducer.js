@@ -7,7 +7,8 @@ import {
     ADD_PET_ERROR,
     ADD_WEIGHT_SUCCESS,
     ADD_WEIGHT_ERROR,
-    DELETE_PET_SUCCESS 
+    DELETE_PET_SUCCESS,
+    PURGE_STATE 
 } from '../actions/pets';
 import moment from 'moment';
 
@@ -55,7 +56,6 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             error: action.error
         });
-        // use the filter method to find the matching petIndex
         // and use the splice method to remove it from the current state
     } else if (action.type === DELETE_PET_SUCCESS) {
         const newPets = Object.assign([], state); // create copy of state
@@ -63,6 +63,10 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             data: newPets.data
         });
-     }
+     } else if (action.type === PURGE_STATE) {
+        return Object.assign({}, state, {
+            data: []
+        });
+    }
       return state;
 }
