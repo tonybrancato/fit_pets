@@ -8,9 +8,6 @@ import Input from './input';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
 import { Link } from 'react-router-dom';
 
-import './registration-form.css';
-
-
 export class RegistrationForm extends React.Component {
 onSubmit(values) {
 const {
