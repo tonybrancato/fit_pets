@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import Pet from './pets';
 import { getPets } from '../actions/pets';
 import NavBar from './navbar';
-
+import paw from './imgs/paw.svg';
 import './dashboard.css';
 
 export class Dashboard extends React.Component {
@@ -24,12 +24,28 @@ export class Dashboard extends React.Component {
     // }
 
     return (
-      <div className="dashboard">
+      <div>
         <NavBar />
-        <Helmet>
-          <title>Fit Pets - My Pets</title>        
-        </Helmet>
-        <Pet />
+        <div className="dashboard">
+          <Helmet>
+            <title>Fit Pets - My Pets</title> 
+            <style type="text/css">
+              {` body { 
+                  background-image: url(${paw}); 
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  background-size: 400px;
+                  background-color: rgba(0, 0, 0, .83);
+                  height: 100vh;
+              }
+              @media only screen and (max-width: 767px) {
+                body {
+                  background-size: 350px;
+                }`}
+            </style>          
+          </Helmet>
+          <Pet />
+        </div>
       </div>
     );
   }
