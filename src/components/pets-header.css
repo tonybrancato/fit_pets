@@ -1,0 +1,23 @@
+.header-parent {
+  width: 100%;
+}
+
+.pets-header {
+  font-family: 'Pacifico', cursive;
+  font-size: 5em;
+  font-weight: 700;
+  color: #c05fff;
+  text-shadow: 1px 1px 2px #000,
+               2px 2px 2.5px #fff;
+  margin-top: 15%;
+  margin-bottom: 50px;
+  text-align: center;
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Tablets, small desktops/laptops */
+  .pets-header   {
+    font-size: 4em;
+  }
+}
