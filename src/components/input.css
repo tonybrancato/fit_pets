@@ -16,7 +16,6 @@ input[type=text], input[type=number], input[type=password], {
   margin: 5px;
   width: 400px;
   font-size: 2em;
-  border-radius: 3pt;
 }
 
 input {
@@ -25,6 +24,7 @@ input {
   border-bottom: 4px solid blueviolet;
   outline: none;
   margin: 10px;
+  border-radius: 3pt;
 }
 
 input:focus {
