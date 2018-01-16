@@ -1,6 +1,7 @@
 .add-pet-form-parent {
     margin-left: 200px;
     margin-top: 100px;
+    text-align: center;
     width: 500px;
     background-color: rgba(255, 255, 255, .3);
     padding: 40px;
@@ -13,10 +14,14 @@
 .add-pet-form-parent input {
     background: rgba(0, 0, 0, .5);
     color: #ffffff;
+    width: 400px;
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .form-header {
-    font-weight: 600;    
+    /* font-weight: 600;     */
     text-align: center;
     padding: 10px;
     margin-top: -15px;
@@ -89,9 +94,11 @@ input[type=radio]:checked + label, .add-pet-form button:hover {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
     .add-pet-form-parent {
         margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 40px;
         width: 80%;
         background-color: rgba(255, 255, 255, .6);        
     }
