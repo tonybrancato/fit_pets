@@ -7,6 +7,7 @@ import bwdog from './imgs/bwdog.jpg';
 import RegistrationForm from './registration-form';
 import { Helmet } from 'react-helmet';
 import './landing-page.css';
+import './registration-form.css';
 
 export function RegistrationPage(props) {
 // If we are logged in (which happens automatically when registration
@@ -34,7 +35,16 @@ return (
             background-size: cover;
             height: 100vh;
             overflow: hidden;   
-            }`}
+            }
+            @media only screen and (max-width: 767px) {
+              body {
+                background-size: 1024x 768px;
+                background-position: center;
+                height: 100%;
+                overflow: visible;          
+              }
+            }`
+          }
       </style>     
     </Helmet>
     <RegistrationForm />
