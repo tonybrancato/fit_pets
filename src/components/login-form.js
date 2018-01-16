@@ -57,7 +57,7 @@ render() {
         No Account? <Link 
         style={{ textDecoration: 'none' }} 
         to="/register">
-        <span>Register</span></Link> here!
+        <span>Register</span></Link>.
       </div>
     </div>
   );
