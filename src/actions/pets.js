@@ -49,6 +49,10 @@ export const deletePetSuccess = (petId, petIndex) => ({
   petId
 });
 
+export const PURGE_STATE = 'PURGE_STATE';
+export const purgeState = () => ({
+  type: PURGE_STATE
+})
 
 export const getPets = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
@@ -105,7 +109,6 @@ export const addPet = (data, history) => (dispatch, getState) => {
 
 export const addWeight = (weight, petId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log(weight, petId);
   return fetch(`${API_BASE_URL}/pets/weight/${petId}`, {
     method: 'PUT',
     headers: {
@@ -131,7 +134,6 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
 }
 
 export const deletePet = (petId, petIndex, history) => (dispatch, getState) => {
-  console.log(petIndex);
   const USER = getState().auth.currentUser.id;
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/pets/${USER}/${petId}`, {
