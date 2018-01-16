@@ -35,7 +35,7 @@
 @media only screen and (max-width: 767px) {
   /* phones */
   .typist-header {
-    font-size: 3.5em;
+    font-size: 4.5em;
     line-height: 1.4;
   }
   .typist-body {
@@ -45,10 +45,11 @@
   .typist-body p {
     margin-top: 12.5px;
     margin-bottom: 12.5px;
+    padding: 5px;
   }
 }
 
-@media only screen and (min-width: 361px) and (max-width: 767px) {
+@media only screen and (min-width: 330px) and (max-width: 360px) {
   /* smaller phones */
   .typist-header {
     font-size: 4em;
