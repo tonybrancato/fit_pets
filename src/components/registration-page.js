@@ -30,6 +30,7 @@ return (
       <title>Fit Pets - Register</title>
       <style type="text/css">
          {` body { 
+            min-height: 640px;
             background-image: url(${bwdog}); 
             background-repeat: no-repeat;
             background-size: cover;
