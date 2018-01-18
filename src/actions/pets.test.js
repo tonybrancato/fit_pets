@@ -32,18 +32,38 @@ describe('fetchPetError', () => {
   });
 });
 
-// describe('addPetError', () => {
-//   it('Should return the action', () => {
-//       const guess = Math.round(Math.random() * 100);
-//       const action = makeGuess(guess);
-//       expect(action.type).toEqual(MAKE_GUESS);
-//       expect(action.guess).toEqual(guess);
-//   });
-// });
+describe('addPetError', () => {
+  it('Should return the action', () => {
+      const action = addPetError();
+      expect(action.type).toEqual(ADD_PET_ERROR);
+      // expect(action.guess).toEqual(guess);
+  });
+});
 
-// describe('toggleInfoModal', () => {
-//   it('Should return the action', () => {
-//     const action = toggleInfoModal();
-//     expect(action.type).toEqual(TOGGLE_INFO_MODAL);
-//   })
-// })
+describe('addPetSuccess', () => {
+  it('Should return the action', () => {
+    const action = addPetSuccess();
+    expect(action.type).toEqual(ADD_PET_SUCCESS);
+  })
+})
+
+describe('addWeightSuccess', () => {
+  it('Should return the action', () => {
+    const action = addWeightSuccess();
+    expect(action.type).toEqual(ADD_WEIGHT_SUCCESS);
+  })
+})
+
+describe('addWeightError', () => {
+  it('Should return the action', () => {
+    const action = addWeightError();
+    expect(action.type).toEqual(ADD_WEIGHT_ERROR);
+  })
+})
+
+describe('deletePetSuccess', () => {
+  it('Should return the action', () => {
+    const action = deletePetSuccess();
+    expect(action.type).toEqual(DELETE_PET_SUCCESS);
+  })
+})

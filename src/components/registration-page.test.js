@@ -1,10 +1,11 @@
-// import React from 'react';
-// import {shallow} from 'enzyme';
+import React from 'react';
+import {shallow} from 'enzyme';
 
-// import RegistrationPage from './registration-page'; 
+import RegistrationPage from './registration-page'; 
+import { store } from '../store';
 
-// describe('<RegistrationPage />', () => {
-//     it('Renders without crashing', () => {
-//         shallow(<RegistrationPage />);
-//     });
-// });
+describe('<RegistrationPage />', () => {
+    it('Renders without crashing', () => {
+        shallow(<RegistrationPage store={store}/>);
+    });
+});
