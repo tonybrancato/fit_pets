@@ -37,9 +37,7 @@ render() {
     />
     <label htmlFor={this.props.id}>
       {this.props.label}
-      {/* {error} */}
     </label>    
-      {/* {warning} */}
   </div>
   );
 }}
