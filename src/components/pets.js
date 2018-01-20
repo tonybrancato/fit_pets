@@ -12,11 +12,11 @@ import AddPetForm from './add-pet-form';
 import { store } from '../store';
 import DeletePet from './delete-pet-button'
 import PetsHeader from './pets-header';
+
 export class Pet extends React.Component {
   
   componentDidMount() {
     if (this.props.pets.length === 0) {
-      console.log('getting pets');
       this.props.dispatch(getPets());
     }
   }
@@ -44,7 +44,7 @@ export class Pet extends React.Component {
                     labels: pet.weightDate,
                     datasets: [
                       {
-                        label: `${pet.name}'s Weight History`,
+                        label: '',
                         fill: true,
                         backgroundColor: 'rgba(192, 95, 255, .5)',
                         borderColor: '#fff',
@@ -52,7 +52,7 @@ export class Pet extends React.Component {
                         borderDashOffset: 0.0,
                         pointBorderColor: 'rgba(138, 43, 226, 1)',
                         pointBackgroundColor: 'rgba(138, 43, 226, 1)',
-                        pointBorderWidth: 2,
+                        pointBorderWidth: 1,
                         pointHoverRadius: 6,
                         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
                         pointHoverBorderColor: '#15e5e5',
