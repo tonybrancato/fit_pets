@@ -67,3 +67,26 @@ describe('deletePetSuccess', () => {
     expect(action.type).toEqual(DELETE_PET_SUCCESS);
   })
 })
+
+// describe('getPets', () => {
+//   it('Should dispatch getPets', () => {
+//       const data = {
+//           pets: []
+//       };
+
+//       global.fetch = jest.fn().mockImplementation(() =>
+//           Promise.resolve({
+//               ok: true,
+//               json() {
+//                   return pets;
+//               }
+//           })
+//       );
+
+//       const dispatch = jest.fn();
+//       return getPets()(dispatch).then(() => {
+//           expect(fetch).toHaveBeenCalledWith('/api/pets/user');
+//           expect(dispatch).toHaveBeenCalledWith(fetchPetSuccess(pets));
+//       });
+//   });
+// });
