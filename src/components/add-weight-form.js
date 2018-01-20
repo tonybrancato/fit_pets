@@ -33,6 +33,7 @@ export class AddWeightForm extends React.Component {
             name="weight"
             validate={[required, nonEmpty, isTrimmed, length({ min: 1, max: 3})]}/>
           <button
+            className="add-weight-btn"
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
             Add Weight
