@@ -22,19 +22,18 @@ return (
       <title>Fit Pets - Log In</title>     
       <style type="text/css">
         {` body { 
-          min-height: 640px;
+          min-height: 100vh;
           background-image: url(${bwdog}); 
           background-repeat: no-repeat;
           background-size: cover;
-          height: 100vh;
           overflow: hidden;          
         }
         @media only screen and (max-width: 767px) {
           body {
-            background-size: 1024x 768px;
+            background-size: cover;
             background-position: center;
-            height: 100%;
             overflow: visible;          
+            margin-bottom: 100px;  
           }
         }`}
       </style>     
