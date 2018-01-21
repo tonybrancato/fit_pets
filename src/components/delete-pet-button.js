@@ -13,8 +13,6 @@ export class DeletePet extends React.Component {
   }
   
   render() {
-    const petId = this.props.id;
-    const petIndex = this.props.petIndex;
 
     return (
       <form
