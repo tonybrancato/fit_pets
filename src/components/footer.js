@@ -10,7 +10,7 @@ render() {
   return (
     <footer>
       Created by Tony Brancato 
-      <a href='https://github.com/tonybrancato' target='_blank'>
+      <a href='https://github.com/tonybrancato'rel="noopener noreferrer" target='_blank'>
       <img className='github' src={github} alt="Tony's Github Profile" width='30'></img></a>
     </footer>
   )
