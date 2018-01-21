@@ -101,11 +101,11 @@ export const addPet = (data, history) => (dispatch, getState) => {
     return Promise.reject(
       new SubmissionError({
         [location]: message,
-        }),
+      }),
     );
     }
-    });
-  };
+  });
+};
 
 export const addWeight = (weight, petId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
@@ -140,7 +140,7 @@ export const deletePet = (petId, petIndex, history) => (dispatch, getState) => {
     method: 'delete',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${authToken}`
+       authorization: `Bearer ${authToken}`
     },    
     body: JSON.stringify(petId)    
   })
