@@ -70,9 +70,6 @@ export class Pet extends React.Component {
                 id={pet.id}/>
               </div>
               <div className='food'>
-                <h3>
-                  Food is {pet.foodBrand}
-                </h3>
               </div>
               <DeletePet
                 form={`delete-pet ${pet.id}`}
