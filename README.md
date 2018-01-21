@@ -17,16 +17,8 @@ Also during this time, one of our cats, Millie, was a bit overweight.
 ## Use Case
 Whether your pet is overweight, underweight, or at a healthy weight, this app will allow you to keep that information--and the historical data along with it--conveniently in one place.
 
-<!-- ## Screenshots
-
-Mobile View:
-
-<img src="" alt="mobile view" height="300px">
-
-Desktop View:
-
-<img src="" alt="desktop view" height="300px"> -->
-
+## Screenshots
+  * [screenshots](https://github.com/tonybrancato/fit_pets/tree/master/screenshots)
 ## Where Can I use it?
 #### [_Live Example_](https://peaceful-feynman-033f15.netlify.com)
 
@@ -51,7 +43,15 @@ Or...you can clone the repository and really dive in!
 
 ## Code Attributions
 
-## Future Implementations
+#### _Authentication_
+  * [Thinkful](https://github.com/Thinkful-Ed/node-jwt-auth)
 
 ## Graphic Attributions
+  #### _Background Images_
+  * [bwcat.jpg](https://static.pexels.com/photos/9079/night-animal-cats-clean.jpg)
+  * [bwdog.jpg](https://cdn.pixabay.com/photo/2015/04/10/00/47/dog-715545_1280.jpg)
+  * [paw.svg](https://www.flaticon.com/free-icon/animal-paw-print_64431)
+  * [whitePaw.svg](https://www.flaticon.com/free-icon/animal-paw-print_64431)
 
+  #### _Icons_
+  * [github.svg](https://www.flaticon.com/free-icon/github-logo_25231)
