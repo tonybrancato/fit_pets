@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Pet from './pets';
-import { getPets } from '../actions/pets';
 import NavBar from './navbar';
 import paw from './imgs/paw.svg';
 import './dashboard.css';

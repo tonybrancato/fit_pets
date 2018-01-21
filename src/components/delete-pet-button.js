@@ -1,6 +1,6 @@
 import React from 'react';
 import { deletePet } from '../actions/pets';
-import { Field, reduxForm, focus, change } from 'redux-form';
+import { reduxForm, focus } from 'redux-form';
 import { withRouter } from 'react-router-dom';
 import './delete-pet-button.css';
 
@@ -34,6 +34,6 @@ export class DeletePet extends React.Component {
 }
 
 export default reduxForm({
-  // onSubmitFail: (errors, dispatch) =>
-  //   dispatch(focus(this.props.form, Object.keys(errors)[0])),
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus(this.props.form, Object.keys(errors)[0])),
   })(withRouter(DeletePet));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import bwdog from './imgs/bwdog.jpg';
 import RegistrationForm from './registration-form';
 import { Helmet } from 'react-helmet';
@@ -8,8 +8,8 @@ import './landing-page.css';
 import './registration-form.css';
 
 export function RegistrationPage(props) {
-// If we are logged in (which happens automatically when registration
-// is successfull, redirect to the user's dashboard
+  // If we are logged in (which happens automatically when registration
+  // is successfull, redirect to the user's dashboard
   if (props.loggedIn) {
     return <Redirect to="/addpet" />;
   }

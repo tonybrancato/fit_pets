@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm /* focus */} from 'redux-form';
+import { Field, reduxForm, focus} from 'redux-form';
 import renderDatePicker from './datepicker';
 import { addPet } from '../actions/pets';
 import Input from './input';

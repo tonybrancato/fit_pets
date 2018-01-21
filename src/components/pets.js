@@ -1,12 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Accordion, AccordionItem } from 'react-sanfona';
 import { Line } from 'react-chartjs-2';
 import { getPets } from '../actions/pets';
 import AddWeightForm from './add-weight-form';
-import AddPetForm from './add-pet-form';
-import { store } from '../store';
 import DeletePet from './delete-pet-button'
 import PetsHeader from './pets-header';
 import './pet.css';
