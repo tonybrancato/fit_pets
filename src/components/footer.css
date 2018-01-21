@@ -1,0 +1,19 @@
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(108, 80, 141);
+  border-top: 1px solid #fff;
+ }
+
+ img {
+   margin-left: 15px;
+ }
+
+ a:hover {
+   fill: black;
+ }
