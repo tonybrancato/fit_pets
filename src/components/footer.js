@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import github from './imgs/github.svg';
 import './footer.css';

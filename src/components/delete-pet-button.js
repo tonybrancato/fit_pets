@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { deletePet } from '../actions/pets';
 import { Field, reduxForm, focus, change } from 'redux-form';

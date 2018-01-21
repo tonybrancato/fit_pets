@@ -1,4 +1,4 @@
-/*eslint-disable*/
+
 
 // Boilerplate code for handling errors from the API.  If the error response
 // contains JSON then we return a rejected promise containing the decoded

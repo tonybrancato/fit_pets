@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';

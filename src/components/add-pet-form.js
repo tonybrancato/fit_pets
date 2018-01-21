@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { Field, reduxForm /* focus */} from 'redux-form';
 import renderDatePicker from './datepicker';
@@ -19,7 +17,6 @@ export class AddPetForm extends React.Component {
     };
   return this.props
     .dispatch(addPet(pet, this.props.history))
-    // .then(() => this.props.dispatch)
   }
 
   render() {
@@ -125,6 +122,6 @@ export class AddPetForm extends React.Component {
 
 export default reduxForm({
   form: 'add-pet',
-  // onSubmitFail: (errors, dispatch) =>
-  //   dispatch(focus('add-pet', Object.keys(errors)[0])),
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('add-pet', Object.keys(errors)[0])),
   })(withRouter(AddPetForm));

@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import {SET_AUTH_TOKEN, SET_CURRENT_USER} from '../actions/auth';
 
 const initialState = {

@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 export const loadAuthToken = () => {
     return localStorage.getItem('authToken');
 };

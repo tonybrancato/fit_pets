@@ -11,7 +11,7 @@ import './navbar.css';
 
 export class NavBar extends React.Component {
   logOut() {
-    this.props.dispatch(purgeState());
+    this.props.dispatch(purgeState()); // prevents browser from storing state upon logout
     this.props.dispatch(setCurrentUser(null));
     this.props.dispatch(setAuthToken(null));
     clearAuthToken();

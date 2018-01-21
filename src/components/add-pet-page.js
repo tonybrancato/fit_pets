@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -10,6 +8,7 @@ import bwcat from './imgs/bwcat.jpg';
 import paw from './imgs/paw.svg';
 
 export function AddPetPage(props) {
+  // if a user is not logged in they will be brought to the landing page
   if (!props.loggedIn) {
     return <Redirect to="/" />;
   }

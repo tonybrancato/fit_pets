@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { Field, reduxForm, focus, change } from 'redux-form';
 import { addWeight } from '../actions/pets'
@@ -45,6 +43,6 @@ export class AddWeightForm extends React.Component {
 }
 
 export default reduxForm({
-  // onSubmitFail: (errors, dispatch) =>
-  //   dispatch(focus(this.props.form, Object.keys(errors)[0])),
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus(this.props.form, Object.keys(errors)[0])),
   })(AddWeightForm);

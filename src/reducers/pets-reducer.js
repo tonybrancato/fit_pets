@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import {
     FETCH_PET_SUCCESS,
     FETCH_PET_ERROR,
@@ -56,7 +54,7 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             error: action.error
         });
-        // and use the splice method to remove it from the current state
+        // use the splice method to remove it from the current state
     } else if (action.type === DELETE_PET_SUCCESS) {
         const newPets = Object.assign([], state); // create copy of state
         newPets.data.splice(action.petIndex, 1);

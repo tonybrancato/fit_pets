@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from '../config';

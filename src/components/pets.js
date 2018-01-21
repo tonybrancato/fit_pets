@@ -1,17 +1,15 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Accordion, AccordionItem } from 'react-sanfona';
 import { Line } from 'react-chartjs-2';
-import './pet.css';
 import { getPets } from '../actions/pets';
 import AddWeightForm from './add-weight-form';
 import AddPetForm from './add-pet-form';
 import { store } from '../store';
 import DeletePet from './delete-pet-button'
 import PetsHeader from './pets-header';
+import './pet.css';
 
 export class Pet extends React.Component {
   
@@ -24,6 +22,7 @@ export class Pet extends React.Component {
   render() {
     const accordionItems = (this.props.pets).map((pet, index) => {
       return (
+        // expandable Accordion for each pet
         <AccordionItem
           key={index}
           id={pet.id}
@@ -63,15 +62,15 @@ export class Pet extends React.Component {
                     ]
                   }
                 } />
-
-              <AddWeightForm 
+              
+              <AddWeightForm // Input and button to update graph
                 form={`add-weight ${pet.id}`} 
                 key={index} 
                 id={pet.id}/>
               </div>
               <div className='food'>
               </div>
-              <DeletePet
+              <DeletePet // butotn to delete pet
                 form={`delete-pet ${pet.id}`}
                 petIndex={index} 
                 name={pet.name}
@@ -82,7 +81,10 @@ export class Pet extends React.Component {
   })
     return (
       <div className='pet-parent'>
-        <PetsHeader />
+        {/* "My Pets" */}
+        <PetsHeader /> 
+        {/* Higher level component from react-sanfona package
+            Houses all of the accordion items created */}
         <Accordion 
           key={this.props.id}>         
           {accordionItems}

@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
