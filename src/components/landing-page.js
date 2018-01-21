@@ -48,10 +48,10 @@ return (
       <br />
       <div className="typist-body">
         <p>Add your pets. 
-        <Typist.Delay ms={300} /> Update their info.  
-        <Typist.Delay ms={300} /> Monitor their health. </p>
+        <Typist.Delay ms={250} /> Update their info.  
+        <Typist.Delay ms={250} /> Monitor their health. </p>
         <p> Give Belly Rubs (Woof!)<Typist.Backspace count={18} delay={100}/>
-           Head Rubs (Meow!)<Typist.Backspace count={17} delay={300}/> 
+           Head Rubs (Meow!)<Typist.Backspace count={17} delay={100}/> 
            Love.</p>
       </div>
     </Typist>
