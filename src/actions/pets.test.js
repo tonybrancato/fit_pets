@@ -17,6 +17,8 @@ import {
   addPet,
   addWeight,
   deletePet} from './pets'; 
+import { API_BASE_URL } from '../config';
+import {history} from '../store';
 
 describe('fetchPetSuccess', () => {
   it('Should return the action', () => {
@@ -44,49 +46,167 @@ describe('addPetSuccess', () => {
   it('Should return the action', () => {
     const action = addPetSuccess();
     expect(action.type).toEqual(ADD_PET_SUCCESS);
-  })
-})
+  });
+});
 
 describe('addWeightSuccess', () => {
   it('Should return the action', () => {
     const action = addWeightSuccess();
     expect(action.type).toEqual(ADD_WEIGHT_SUCCESS);
-  })
-})
+  });
+});
 
 describe('addWeightError', () => {
   it('Should return the action', () => {
     const action = addWeightError();
     expect(action.type).toEqual(ADD_WEIGHT_ERROR);
-  })
-})
+  });
+});
 
 describe('deletePetSuccess', () => {
   it('Should return the action', () => {
     const action = deletePetSuccess();
     expect(action.type).toEqual(DELETE_PET_SUCCESS);
-  })
-})
+  });
+});
 
-// describe('getPets', () => {
-//   it('Should dispatch getPets', () => {
-//       const data = {
-//           pets: []
-//       };
+describe('getPets', () => {
+  it('Should dispatch getPets', () => {
+      const data = {
+          pets: []
+      };
 
-//       global.fetch = jest.fn().mockImplementation(() =>
-//           Promise.resolve({
-//               ok: true,
-//               json() {
-//                   return pets;
-//               }
-//           })
-//       );
 
-//       const dispatch = jest.fn();
-//       return getPets()(dispatch).then(() => {
-//           expect(fetch).toHaveBeenCalledWith('/api/pets/user');
-//           expect(dispatch).toHaveBeenCalledWith(fetchPetSuccess(pets));
-//       });
-//   });
-// });
+      global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+          ok: true,
+          json() {
+              return data;
+          }
+      })
+    );
+
+      const dispatch = jest.fn();
+      const getState = () => ({
+        auth: {
+          authToken: "token",
+          currentUser: {
+            id: "1"
+          }
+        }
+      });
+
+      return getPets()(dispatch, getState).then(() => {
+          expect(fetch).toHaveBeenCalledWith(
+            `${API_BASE_URL}/pets/1`,
+            {
+              "headers": {
+                "authorization": "Bearer token",
+                "content-type": "application/json"
+              },
+              "method": "GET"
+            }
+          );
+          expect(dispatch).toHaveBeenCalledWith(fetchPetSuccess(data.pets));
+      });
+  });
+});
+
+describe('addWeight', () => {
+  it('Should dispatch addWeightSuccess', () => {
+      const data = {
+          pets: []
+      };
+
+
+      global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+          ok: true,
+          json() {
+              return data;
+          }
+      })
+    );
+
+      const dispatch = jest.fn();
+      const getState = () => ({
+        auth: {
+          authToken: "token",
+          currentUser: {
+            id: "1"
+          }
+        }
+      });
+      const testWeight = "24";
+      const testPetId = "12345";
+      return addWeight(testWeight, testPetId)(dispatch, getState).then(() => {
+          expect(fetch).toHaveBeenCalledWith(
+            `${API_BASE_URL}/pets/weight/${testPetId}`,
+            {
+              "headers": {
+                "authorization": "Bearer token",
+                "content-type": "application/json"
+              },
+              "method": "PUT",
+              "body": JSON.stringify({"weight": testWeight, "id": testPetId})
+            }
+          );
+          expect(dispatch).toHaveBeenCalledWith(addWeightSuccess(testWeight, testPetId));
+      });
+  });
+});
+
+describe('deletePet', () => {
+  it('Should dispatch deletePet', () => {
+      const data = {
+          pets: []
+      };
+
+
+      global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+          ok: true,
+          json() {
+              return data;
+          }
+      })
+    );
+
+    global.history = jest.fn().mockImplementation(() =>
+    Promise.resolve({
+        ok: true,
+        json() {
+            return data;
+        }
+    })
+  );
+
+      const dispatch = jest.fn();
+      const getState = () => ({
+        auth: {
+          authToken: "token",
+          currentUser: {
+            id: "1"
+          }
+        }
+      });
+
+      const testIndex = "1";
+      const testPetId = "12345";
+
+      return deletePet(testPetId, testIndex, history)(dispatch, getState).then(() => {
+          expect(fetch).toHaveBeenCalledWith(
+            `${API_BASE_URL}/pets/1/${testPetId}`,
+            {
+              "headers": {
+                "authorization": "Bearer token",
+                "content-type": "application/json"
+              },
+              "method": "delete",
+              "body": JSON.stringify(testPetId)
+            }
+          );
+          expect(dispatch).toHaveBeenCalledWith(deletePetSuccess(testIndex, testPetId));
+      });
+  });
+});
