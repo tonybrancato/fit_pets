@@ -23,6 +23,7 @@ return (
       <style type="text/css">
         {` body { 
           min-height: 100vh;
+          
           background-image: url(${bwdog}); 
           background-repeat: no-repeat;
           background-size: cover;

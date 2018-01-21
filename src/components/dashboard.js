@@ -36,7 +36,7 @@ export class Dashboard extends React.Component {
                   background-position: center;
                   background-size: 400px;
                   background-color: rgba(0, 0, 0, .83);
-                  height: 100vh;
+                  min-height: 100vh;
               }
               @media only screen and (max-width: 767px) {
                 body {
