@@ -54,8 +54,10 @@
 
 @media only screen and (max-width: 767px) {
   /* phones */
+  .form-container {
+    margin-top: 50px;
+  }
   .form-container, .form-container input {
-    margin-top: 10px;
     width: 90%;
   }
   .form-container input {
