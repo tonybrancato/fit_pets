@@ -23,8 +23,8 @@ return (
           background-image: url(${bwcat}); 
           background-repeat: no-repeat;
           background-size: cover;
-          overflow: hidden;  
-          height: 100vh;
+          overflow: auto;  
+          min-height: 100vh;
         }
         @media only screen and (max-width: 767px) {
           body {
@@ -33,7 +33,6 @@ return (
             background-repeat: no-repeat;
             background-size: 350px;
             background-color: rgba(0, 0, 0, .83);
-            overflow: visible;          
           }
         }`}
       </style>     
