@@ -37,6 +37,7 @@ export class AddPetForm extends React.Component {
                 type="radio"
                 name="species"
                 value="Dog"
+                validate={[required]}
               />
             </div>
             <div className='radio-input right'> 
@@ -48,6 +49,7 @@ export class AddPetForm extends React.Component {
                 type="radio"
                 name="species"
                 value="Cat"
+                validate={[required]}
               />
             </div>
           </div>
@@ -60,6 +62,7 @@ export class AddPetForm extends React.Component {
                   type="radio"
                   name="sex"
                   value="Male"
+                  validate={[required]}
                 />
               </div>
               <div className='radio-input right'> 
@@ -70,6 +73,7 @@ export class AddPetForm extends React.Component {
                   type="radio"
                   name="sex"
                   value="Female"
+                  validate={[required]}
                 />
               </div>
             </div>
