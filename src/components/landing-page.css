@@ -8,7 +8,6 @@ div.Typist {
   color: #663399;
   text-align: center;
   font-weight: 600;    
-  margin-top: 20px;
 }
 
 .typist-header {
@@ -43,8 +42,8 @@ div.Typist {
   }
 
   .typist-header {
-    font-size: 4.5em;
-    line-height: 1.4;
+    font-size: 4em;
+    line-height: 1.25;
   }
   .typist-body {
     font-size: 1.6em;
