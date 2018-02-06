@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import LoginForm from './login-form';
 import { Helmet } from 'react-helmet';
-import Typist from 'react-typist';
 import bwdog from './imgs/bwdog.jpg';
 import './landing-page.css';
 
@@ -37,24 +36,15 @@ return (
         }`}
       </style>     
     </Helmet>
-    <Typist
-      cursor={{
-        show: true,
-        hideWhenDone: true
-      }}>
+    <div className="Typist">
       <span className="typist-header">Welcome to 
       <span className='typist-logo'> Fit Pets</span></span>
-      <Typist.Delay ms={500} />
       <br />
       <div className="typist-body">
-        <p>Add your pets. 
-        <Typist.Delay ms={250} /> Update their info.  
-        <Typist.Delay ms={250} /> Monitor their health. </p>
-        <p> Give Belly Rubs (Woof!)<Typist.Backspace count={18} delay={100}/>
-           Head Rubs (Meow!)<Typist.Backspace count={17} delay={100}/> 
-           Love.</p>
-      </div>
-    </Typist>
+        <p>Add your pets. Update their info. Monitor their health.</p>
+        <p>Give Love.</p>
+      </div>  
+    </div>
     <LoginForm />
   </div>
 );
