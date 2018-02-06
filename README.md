@@ -20,7 +20,7 @@ Whether your pet is overweight, underweight, or at a healthy weight, this app wi
 ## Screenshots
   * [screenshots](https://github.com/tonybrancato/fit_pets/tree/master/screenshots)
 ## Where Can I use it?
-#### [_Live Example_](https://peaceful-feynman-033f15.netlify.com)
+#### [_Live Example_](https://fitpets.netlify.com/)
 
 [API Repository](https://github.com/tonybrancato/fit-pets-node)
 
