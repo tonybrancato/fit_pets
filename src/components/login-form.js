@@ -24,6 +24,10 @@ render() {
   }
   return (
     <div className='form-container'>
+      <div className="demo">
+        <p>Demo Login: scooby</p>
+        <p>Demo Password: scoobysnacks</p>
+      </div>
       <form
         className="login-form"
         onSubmit={this.props.handleSubmit(values =>
