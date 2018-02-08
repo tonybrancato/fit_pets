@@ -41,10 +41,12 @@ export default function reducer(state = initialState, action) {
                 return pet;
             }
             return Object.assign({}, pet, {
-                weight: [...pet.weight, 
-                    action.weight],
-                weightDate: [...pet.weightDate, 
-                    moment.utc().format('L')]
+                weights: [...pet.weights, 
+                    {
+                        weight: action.weight,
+                        weightDate: moment.utc().format('L') 
+                    }
+                ]
             });
         });
         return Object.assign({}, state, {

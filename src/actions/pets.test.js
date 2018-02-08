@@ -19,6 +19,7 @@ import {
   deletePet} from './pets'; 
 import { API_BASE_URL } from '../config';
 import {history} from '../store';
+import moment from 'moment';
 
 describe('fetchPetSuccess', () => {
   it('Should return the action', () => {
@@ -148,7 +149,7 @@ describe('addWeight', () => {
                 "content-type": "application/json"
               },
               "method": "PUT",
-              "body": JSON.stringify({"weight": testWeight, "id": testPetId})
+              "body": JSON.stringify({"id": testPetId, "weights": {"weight": testWeight, "weightDate": moment.utc().format('L') }})
             }
           );
           expect(dispatch).toHaveBeenCalledWith(addWeightSuccess(testWeight, testPetId));

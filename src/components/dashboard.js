@@ -15,11 +15,6 @@ export class Dashboard extends React.Component {
     if (!this.props.loggedIn) {
       return <Redirect to="/" />;
     }
-  // Redirects to add-pet-form if user has no pets
-    // if (this.props.pets.length === 0) {
-    //   return <Redirect to="/addpet" />;
-    // }
-
     return (
       <div>
         <NavBar />

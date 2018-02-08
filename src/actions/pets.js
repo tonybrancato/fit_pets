@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form';
-
+import moment from 'moment';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
@@ -113,7 +113,14 @@ export const addWeight = (weight, petId) => (dispatch, getState) => {
       'content-type': 'application/json',
       authorization: `Bearer ${authToken}`
     },
-    body: JSON.stringify({weight: weight, id: petId})
+    body: JSON.stringify(
+      {id: petId, weights: 
+        {
+          weight: weight, 
+          weightDate: moment.utc().format('L')
+        } 
+      }
+    )
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
