@@ -28,7 +28,7 @@ export class Pet extends React.Component {
           duration={200}
           title={`${pet.name} the ${pet.species}`} >
             <div className='chart-parent'>
-              <h3>{`${pet.name}'s Current Weight: ${pet.weight.slice(-1)[0]} pounds`}</h3>
+              <h3>{`${pet.name}'s Current Weight: ${pet.weights.slice(-1)[0].weight} pounds`}</h3>
               <h3>{`Age: ${pet.age}s`}</h3>
               <div className="chart">
                 <Line 
@@ -37,7 +37,7 @@ export class Pet extends React.Component {
                     maintainAspectRatio: false
                   }}                
                   data={{
-                    labels: pet.weightDate,
+                    labels: pet.weights.map((weights, i) => {return pet.weights[i].weightDate}),
                     datasets: [
                       {
                         label: '',
@@ -54,7 +54,7 @@ export class Pet extends React.Component {
                         pointHoverBorderColor: '#15e5e5',
                         pointHoverBorderWidth: 1,
                         pointRadius: 4,
-                        data: pet.weight,
+                        data: pet.weights.map((weights, i) => {return pet.weights[i].weight}),
                       }
                     ]
                   }
