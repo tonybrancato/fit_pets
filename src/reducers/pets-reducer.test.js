@@ -18,14 +18,14 @@ import { currentId } from 'async_hooks';
 
 describe('reducer', () => {
     // Set up some dummy data
-    const pet1 = {
-        weight: ['25'],
-        weightDate: ['11/22/1963'],
+    const pet1 = { weights: [{
+        weight: '25',
+        weightDate: '11/22/1963'}],
         id: 'foo',
     };
-    const pet2 = {
-        weight: ['42'],
-        weightDate: ['06/23/1990'],
+    const pet2 = { weights: [{
+        weight: '42',
+        weightDate: '06/23/1990'}],
         id: 'bar'
     };
     const weight1 = '66';
@@ -67,13 +67,30 @@ describe('reducer', () => {
             state = reducer(state, addWeightSuccess(weight2, pet2.id));
             expect(state).toEqual({
                 data: [{
-                    id: pet1.id,
-                    weight: ['25', weight1],
-                    weightDate: ['11/22/1963', moment.utc().format('L')]
+                    id: pet1.id, weights: 
+                    [
+                        {
+                            weight: '25',
+                            weightDate: '11/22/1963'
+                        },
+                        {
+                            weight: weight1,
+                            weightDate: moment.utc().format('L')
+                        }
+                    ],
+
                 }, {
-                    id: pet2.id,
-                    weight: ['42', weight2],
-                    weightDate: ['06/23/1990', moment.utc().format('L')]
+                    id: pet2.id, weights: 
+                    [
+                        {
+                            weight: '42',
+                            weightDate: '06/23/1990'
+                        },
+                        {
+                            weight: weight2,
+                            weightDate: moment.utc().format('L')
+                        }
+                    ]
                 }]                
             });
         });
