@@ -32,8 +32,7 @@ export function RegistrationPage(props) {
               background-image: url(${bwdog}); 
               background-repeat: no-repeat;
               background-size: cover;
-              overflow: hidden;   
-              }
+            }
               @media only screen and (max-width: 767px) {
                 body {
                   background-size: cover;
